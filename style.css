@@ -7,3 +7,18 @@ body {
     font-family: 'Noto Serif', serif;
     background: #242424;
 }
+
+.sublinhado {
+    display: flex;
+}
+
+.desenharLinhas {
+    border-bottom: solid 4px #E1B25C;
+    width: 30px;
+    margin: 10px;
+}
+
+.esconderLetra {
+    display: none;
+    font-size: 18px;
+}
