@@ -15,3 +15,24 @@ var erros = 8;
 let letrasIncorretas = [];
 let numeroDeErros = 8;
 let LetraEscolhida = [];
+
+document.getElementById("iniciar-jogo").onclick = () => {
+    iniciarJogo()
+}
+
+document.getElementById("btn-salvar").onclick = () => {
+    salvarPalavra();
+}
+
+btnNovoJogo.addEventListener("click",function () {
+    location.reload();
+});
+
+btnSair.addEventListener("click", function () {
+    location.reload();
+})
+
+btnCancelar.addEventListener("click", function() {
+    location.reload();
+});
+
