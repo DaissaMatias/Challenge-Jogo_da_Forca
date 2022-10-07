@@ -36,3 +36,59 @@ btnCancelar.addEventListener("click", function() {
     location.reload();
 });
 
+function escolherPalavraSecreta() {
+    let palavra = palavras[Math.floor(Math.random() * palavras.length)]
+    palavraSecreta = palavra;
+    return palavra
+}
+
+function verificaLetraClicada(key) {
+    if (letras.length < 1 || letras.indexOf(key) < 0) {
+        letras.push(key);
+        return false
+    }
+    else {
+        letras.push(key)
+        return true
+    }
+} 
+
+function adicionarLetraCorreta(i) {
+    palavraCorreta += palavrasecreta[i].toUpperCase()
+}
+
+function adicionarLetraIncorreta(letter) {
+    if (palavraSecreta.indexOf(letter) <= 0){
+        erros -= 1
+    }
+}
+
+function verificarFimDeJogo(letra) {
+    if(LetraEscolhida.length < palavraSecreta.length) {
+        letrasIncorretas.push(letra);
+
+        if (letrasIncorretas.length > numeroDeErros) {
+            exibirDerrota();
+        }
+        else if(LetraEscolhida.length < palavraSecreta.length) {
+            adicionarLetraIncorreta(letra);
+            escreverLetraIncorreta(letra,erros)
+        }
+    }
+}
+
+function verificarVencedor(letra) {
+    LetraEscolhida.push(letra.toUpperCase());
+    if (LetraEscolhida.length == palavraSecreta.length) {
+        exibirVitoria();
+    }
+}
+
+function verificarLetra (keyCode) {
+    if(typeof keyCode === "number" && keyCode >= 65 && keyCode <= 90) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
