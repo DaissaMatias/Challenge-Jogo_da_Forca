@@ -92,3 +92,62 @@ function verificarLetra (keyCode) {
     }
 }
 
+function mostrarTelaAdicionarPalavra() {
+    document.getElementById("div-desaparece").style.display = 'none';
+    document.getElementById("adicionar-palavra").style.display = "block";
+}
+
+function salvarPalavra(){
+    let novaPalavra = document.getElementById('input-nova-palavra').value
+
+    if(novaPalavra !== "") {
+        palavras.push(novaPalavra.toUpperCase());
+        alert('A palavra digitada foi salva')
+
+        document.getElementById("adicionar-palavra").style.display = "none";
+        iniciarJogo();
+    }
+    else{
+        alert("Nenhuma palavra foi digitada");
+    }
+}
+
+function iniciarJogo() {
+    document.getElementById("div-desaparece").style.display = 'none';
+
+    desenharCanvas();
+
+    escolherPalavraSecreta();
+
+    desenharLinhas();
+
+    document.getElementById("btn-novo-jogo").style.display = "block";
+    document.getElementById("btn-sair").style.display = "block";
+
+    document.onkeydown = (e) => {
+        let letra = e.key.toUpperCase()
+
+        if(letrasIncorretas.length <= numeroDeErros) {
+            if(!verificaLetraClicada(e.key) && verificarLetra(e.keyCode)) {
+                if (palavraSecreta.includes(letra)) {
+                    adicionarLetraCorreta(palavraSecreta.indexOf(letra))
+                    for (let i = 0; i < palavraSecreta.length; i++) {
+                        if(palavraSecreta[i] === letra) {
+                            escreverLetraCorreta(i);
+                            verificarVencedor(letra);
+                        }
+                    }
+                }
+                else {
+                    if (!verificaLetraClicada(e.key) && !verificarVencedor(letra)) return
+                    desenharForca (erros);
+                    verificarFimDeJogo(letra);
+                }
+            }
+        }
+        else {
+            alert('Você atingiu o limite de letras incorretas');
+        }
+    }
+}
+
