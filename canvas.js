@@ -3,7 +3,7 @@ function desenharCanvas() {
     tabuleiro.lineCap="round"
     tabuleiro.lineJoin="round"
     tabuleiro.fillStyle="#242424"
-    tabuleiro.strokeStyle="func"
+    tabuleiro.strokeStyle="#E1B25C"
     tabuleiro.fillRect(0,0,1200,800);
     tabuleiro.beginPath();
     tabuleiro.moveTo(650,500);
@@ -28,7 +28,7 @@ function desenharLinhas() {
 }
 
 function escreverLetraCorreta(index) {
-    tabuleiro.font = 'bold 52px Noto'
+    tabuleiro.font = 'bold 52px Noto';
     tabuleiro.lineWidth= 6
     tabuleiro.lineCap= "round"
     tabuleiro.lineJoin= "round"
@@ -40,11 +40,11 @@ function escreverLetraCorreta(index) {
 
 function escreverLetraIncorreta(letra, errorsLeft) {
     tabuleiro.lineWidth= 6
-    tabuleiro.font= 'bold 40px Noto'
+    tabuleiro.font= 'bold 40px Noto';
     tabuleiro.lineCap="round"
     tabuleiro.lineJoin= "round"
     tabuleiro.fillStyle="#E1B25C"
-    tabuleiro.fillRect(letra,535+(40*(10-errorsLeft)),710,40)
+    tabuleiro.fillText(letra,535+(40*(10-errorsLeft)),710,40)
 
 }
 
@@ -110,7 +110,7 @@ function exibirVitoria() {
     tabuleiro.fillStyle= "green"
     tabuleiro.fillText("Você Ganhou!",950,320);
     tabuleiro.fillText("Parabéns!",930,360);
-    setTimeout(recarregar, 1000)
+    setTimeout(recarregar, 3000)
 }
 
 function recarregar() {

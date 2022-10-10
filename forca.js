@@ -17,7 +17,7 @@ let numeroDeErros = 8;
 let LetraEscolhida = [];
 
 document.getElementById("iniciar-jogo").onclick = () => {
-    iniciarJogo()
+    iniciarJogo();
 }
 
 document.getElementById("btn-salvar").onclick = () => {
@@ -30,9 +30,9 @@ btnNovoJogo.addEventListener("click",function () {
 
 btnSair.addEventListener("click", function () {
     location.reload();
-})
+});
 
-btnCancelar.addEventListener("click", function() {
+btnCancelar.addEventListener("click", function () {
     location.reload();
 });
 
@@ -54,11 +54,11 @@ function verificaLetraClicada(key) {
 } 
 
 function adicionarLetraCorreta(i) {
-    palavraCorreta += palavrasecreta[i].toUpperCase()
+    palavraCorreta += palavraSecreta[i].toUpperCase()
 }
 
 function adicionarLetraIncorreta(letter) {
-    if (palavraSecreta.indexOf(letter) <= 0){
+    if (palavraSecreta.indexOf(letter) <= 0) {
         erros -= 1
     }
 }
@@ -113,6 +113,7 @@ function salvarPalavra(){
 }
 
 function iniciarJogo() {
+    
     document.getElementById("div-desaparece").style.display = 'none';
 
     desenharCanvas();
